@@ -1,3 +1,4 @@
+
 var btnColors = ["red", "blue", "green", "yellow"];
 var currentPattern = [];
 var k = "value";
@@ -88,7 +89,7 @@ function wrongGuess () {
 }
 
 function randomNextSequence () {
-    $(".recordlabel").text("Record: "+String(record)+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length));
+    $(".recordlabel").text("Record: "+getCookie("record")+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length));
 
     if (currentPattern.length > Number(getCookie("record"))) {document.cookie = "record="+currentPattern.length+";";New = "New ";}
 
