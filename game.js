@@ -75,7 +75,7 @@ function wrongGuess () {
     // if (currentPattern.length-1 > getCookie("record")) {
     //     document.cookie = "record="+(currentPattern.length-1)+";";
     // }
-    $(".recordlabel").text("Record: "+getCookie("record")+" Current Progress: "+ String(currentPattern.length-1));
+    $(".recordlabel").text("Record: "+getCookie("record")+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length-1));
 
     audio["wrong"].play();
     $(".btn").fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
