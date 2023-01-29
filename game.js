@@ -88,7 +88,7 @@ function wrongGuess () {
 }
 
 function randomNextSequence () {
-    $(".recordlabel").text(New+"Record: "+String(record)+"   Current Progress: "+ String(currentPattern.length));
+    $(".recordlabel").text(New+"Record: "+String(record)+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length));
 
     if (currentPattern.length > Number(getCookie("record"))) {document.cookie = "record="+currentPattern.length+";";New = "New ";}
 
