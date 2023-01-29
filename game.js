@@ -33,7 +33,7 @@ function getCookie(cname) {
   }
 
 // if (typeof(getCookie("record")) === "string") {var record = getCookie("record")} else {var record = 0}
-if (!(getCookie("record")==0)) {var record = getCookie("record")} else {var record = 0}
+if (!(getCookie("record")==="")) {var record = getCookie("record")} else {var record = 0}
 
 $(".recordlabel").text("Record: "+String(record)+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length));
 
@@ -75,7 +75,7 @@ function wrongGuess () {
     // if (currentPattern.length-1 > getCookie("record")) {
     //     document.cookie = "record="+(currentPattern.length-1)+";";
     // }
-    $(".recordlabel").text("Record: "+getCookie("record")+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length-1));
+    $(".recordlabel").text(New + "Record: "+getCookie("record")+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length-1));
 
     audio["wrong"].play();
     $(".btn").fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
@@ -88,7 +88,7 @@ function wrongGuess () {
 }
 
 function randomNextSequence () {
-    $(".recordlabel").text(New+"Record: "+String(record)+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length));
+    $(".recordlabel").text("Record: "+String(record)+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length));
 
     if (currentPattern.length > Number(getCookie("record"))) {document.cookie = "record="+currentPattern.length+";";New = "New ";}
 
