@@ -33,9 +33,9 @@ function getCookie(cname) {
   }
 
 // if (typeof(getCookie("record")) === "string") {var record = getCookie("record")} else {var record = 0}
-if (!(getCookie("record")==="")) {var record = getCookie("record")} else {var record = 0}
+if (!(getCookie("record")==="")) {var record = getCookie("record")} else {document.cookie = "record=0;";}
 
-$(".recordlabel").text("Record: "+String(record)+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length));
+$(".recordlabel").text("Record: "+getCookie("record")+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length));
 
 
 
