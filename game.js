@@ -1,4 +1,3 @@
-
 var btnColors = ["red", "blue", "green", "yellow"];
 var currentPattern = [];
 var k = "value";
@@ -10,6 +9,7 @@ var audio ={};
 var clicks = 0;
 var c = false;
 var block = false;
+var lastRec = 0;
 // var totClicks = 0; use currentPattern length
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -34,10 +34,11 @@ function getCookie(cname) {
   }
 
 // if (typeof(getCookie("record")) === "string") {var record = getCookie("record")} else {var record = 0}
-if (!(getCookie("record")==="")) {var record = getCookie("record")} else {document.cookie = "record=0;";}
 
-$(".recordlabel").text("Record: "+getCookie("record")+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length));
+if (!(getCookie("record")==="")) {lastRec = Number(getCookie("record"));console.log("ghg");} else {document.cookie="record=0;";console.log("OK");lastRec = Number(getCookie("record"));}
 
+
+$(".recordlabel").text("Record: "+String(lastRec)+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length));
 
 
 
@@ -68,7 +69,7 @@ for (var a = 0; a < 4; a++) {
             $("#"+String(this.id)).fadeOut(100).fadeIn(100);
             clicks++; randomNextSequence(); clicks = 0;
         } else {
-            clicks++; wrongGuess();
+            wrongGuess();
         }
     })};
 
@@ -76,12 +77,13 @@ function wrongGuess () {
     // if (currentPattern.length-1 > getCookie("record")) {
     //     document.cookie = "record="+(currentPattern.length-1)+";";
     // }
-    $(".recordlabel").text(New + "Record: "+getCookie("record")+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length-1));
-
+    $(".recordlabel").text(New+"Record: "+Number(getCookie("record"))+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length-1));
+    lastRec = getCookie("record");
     audio["wrong"].play();
     $(".btn").fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
     currentPattern=[];
     clicks = 0;
+    
     New = "";
     kp = false;
     $("h1").text("Press a key to restart");
@@ -89,8 +91,8 @@ function wrongGuess () {
 }
 
 function randomNextSequence () {
-    $(".recordlabel").text("Record: "+getCookie("record")+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length));
-
+    $(".recordlabel").text("Record: "+String(lastRec)+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length));
+    console.log(currentPattern);
     if (currentPattern.length > Number(getCookie("record"))) {document.cookie = "record="+currentPattern.length+";";New = "New ";}
 
     num = Math.floor(Math.random()*4);
