@@ -35,7 +35,7 @@ function getCookie(cname) {
 
 // if (typeof(getCookie("record")) === "string") {var record = getCookie("record")} else {var record = 0}
 
-if (!(getCookie("record")==="")) {lastRec = Number(getCookie("record"));console.log("ghg");} else {document.cookie="record=0;";console.log("OK");lastRec = Number(getCookie("record"));}
+if (!(getCookie("record")==="")) {lastRec = Number(getCookie("record"));console.log("ghg");} else {document.cookie="record=0; expires=Thu, 01 Jan 2170 00:00:00 UTC;";console.log("OK");lastRec = Number(getCookie("record"));}
 
 
 $(".recordlabel").text("Record: "+String(lastRec)+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length));
