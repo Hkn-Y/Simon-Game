@@ -93,7 +93,7 @@ function wrongGuess () {
 function randomNextSequence () {
     $(".recordlabel").text("Record: "+String(lastRec)+"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 Current Progress: "+ String(currentPattern.length));
     console.log(currentPattern);
-    if (currentPattern.length > Number(getCookie("record"))) {document.cookie = "record="+currentPattern.length+";";New = "New ";}
+    if (currentPattern.length > Number(getCookie("record"))) {document.cookie = "record="+currentPattern.length+";expires=Thu, 01 Jan 2970 00:00:00 UTC;";New = "New ";}
 
     num = Math.floor(Math.random()*4);
     console.log(eval(num));
